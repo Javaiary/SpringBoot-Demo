@@ -24,7 +24,7 @@ public class SampleController {
         log.info("ex...........");
     }
 
-    @GetMapping({"/ex2"})
+    @GetMapping({"/ex2", "/exLink"})
     public void exModel(Model model){
         List<SampleDto> list = IntStream.rangeClosed(1, 20).asLongStream().
                 mapToObj(i -> {
@@ -38,6 +38,8 @@ public class SampleController {
                 }).collect(Collectors.toList());
         model.addAttribute("list", list);
     }
+
+
 
     @GetMapping({"/exInline"})
     public String exInline(RedirectAttributes redirectAttributes){
@@ -59,5 +61,10 @@ public class SampleController {
     @GetMapping("/ex3")
     public void ex3() {
         log.info("ex3");
+    }
+
+    @GetMapping("/exLayout1")
+    public void exLayout1(){
+        log.info("exLayout......");
     }
 }
