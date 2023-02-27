@@ -73,7 +73,14 @@
 
                 console.log(actionForm.html()); // 먼저 확인 후에 주석 처리
                 actionForm.submit(); //확인 후 주석 해제
+
+                actionForm
+                  .attr("action", "/guestbook/list")
+                  .attr("method", "get");
+
+                actionForm.submit();
             });
+
     </script>
 
   </th:block>

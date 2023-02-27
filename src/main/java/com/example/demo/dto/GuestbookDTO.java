@@ -19,4 +19,6 @@ public class GuestbookDTO {
         private LocalDateTime regDate, modDate;
 
 
+
+
 }
