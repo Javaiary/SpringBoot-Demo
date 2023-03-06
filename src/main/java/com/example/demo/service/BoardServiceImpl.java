@@ -65,4 +65,15 @@ public class BoardServiceImpl implements BoardService {
 
         repository.deleteById(bno);
     }
+    @Transactional // 미기재시 LazyInitializationExeption 오류 발생
+    @Override
+    public void modify(BoardDTO boardDTO) {
+
+        Board board = repository.getOne(boardDTO.getBno());
+
+        board.changeTitle(boardDTO.getTitle());
+        board.changeContent(boardDTO.getContent());
+
+        repository.save(board);
+    }
 }
