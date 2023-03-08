@@ -36,9 +36,10 @@ public class BoardRepostoryTests {
             boardRepository.save(board);
         });
     }
+
     @Transactional
     @Test   //Join값 조회
-    public void testRead1(){
+    public void testRead1() {
         Optional<Board> result = boardRepository.findById(100L);
 
         Board board = result.get();
@@ -48,7 +49,7 @@ public class BoardRepostoryTests {
     }
 
     @Test
-    public void testReadWithWriter(){
+    public void testReadWithWriter() {
         Object result = boardRepository.getBoardWithWriter(100L);
         Object[] arr = (Object[]) result;
 
@@ -57,28 +58,36 @@ public class BoardRepostoryTests {
     }
 
     @Test
-    public void testGetBoardWithReply(){
+    public void testGetBoardWithReply() {
         List<Object[]> result = boardRepository.getBoardWithReply(100L);
 
-        for(Object[] arr : result){
+        for (Object[] arr : result) {
             System.out.println(Arrays.toString(arr));
         }
 
     }
 
     @Test
-    public void testWithReplyCount(){
-        Pageable pageable = PageRequest.of(0,10, Sort.by("bno").descending());
-        Page<Object[]>  result = boardRepository.getBoardWithReplyCount(pageable);
+    public void testWithReplyCount() {
+        Pageable pageable = PageRequest.of(0, 10, Sort.by("bno").descending());
+        Page<Object[]> result = boardRepository.getBoardWithReplyCount(pageable);
         result.get().forEach(row -> {
-            Object[] arr = (Object[])row;
+            Object[] arr = (Object[]) row;
             System.out.println(Arrays.toString(arr));
-        });}
+        });
+    }
 
     @Test
-    public void testRead3(){
+    public void testRead3() {
         Object result = boardRepository.getBoardByBno(100L);
-        Object[] arr = (Object[])result;
+        Object[] arr = (Object[]) result;
         System.out.println(Arrays.toString(arr));
     }
+
+    @Test
+    public void testSearch1(){
+        boardRepository.search1();
+    }
+
+
 }
