@@ -4,7 +4,9 @@ import com.example.demo.entity.Board;
 import com.example.demo.entity.QBoard;
 import com.example.demo.entity.QMember;
 import com.example.demo.entity.QReply;
+import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.Tuple;
+import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.JPQLQuery;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.Page;
@@ -79,6 +81,7 @@ public class SearchBoardRepositoryImpl extends QuerydslRepositorySupport impleme
     @Override
     public Page<Object[]> searchPage(String type, String keyword, Pageable pageable) {
         log.info("searchPage..............................");
+
         return null;
     }
 
