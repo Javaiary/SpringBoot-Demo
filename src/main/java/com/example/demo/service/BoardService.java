@@ -38,7 +38,7 @@ public interface BoardService {
                 .regDate(board.getRegDate())
                 .modDate(board.getModDate())
                 .writerEmail(member.getEmail())
-                .writerName(member.getName())
+                .writerName(member.getNickname())
                 .replyCount(replyCount.intValue())  //long으로 나오므로 int로 바꿔줌
                 .build();
 
